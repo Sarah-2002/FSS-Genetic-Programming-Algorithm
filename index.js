@@ -1,5 +1,6 @@
 const fs = require('fs');
 
+//  FSS Configuration Constraints 
 
 fs.readFile('data.json', 'utf-8',(err,data)=>{
     if(err){
@@ -17,20 +18,13 @@ fs.readFile('data.json', 'utf-8',(err,data)=>{
 })
 
 
-
-
-
 // Genetic Algorithm Parameters
 const populationSize = 100000;
 const generations = 1000;
 const mutationRate = 0.087;
 const crossoverRate = 0.654;
 
-//  FSS Configuration Constraints 
-const constraints = [
-  { layers: 3, spacing: 0.5, thickness: 2, material: "Copper" },
-  // Add other constraints here...
-];
+
 
 // Fitness Function: Evaluate the fitness of an FSS configuration
 function fitnessFunction(configuration) {

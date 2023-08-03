@@ -1,0 +1,298 @@
+[
+    {
+      "layers": 3,
+      "spacing": 0.5,
+      "thickness": 2,
+      "material": "Copper"
+    },
+    {
+      "layers": 4,
+      "spacing": 0.3,
+      "thickness": 1.5,
+      "material": "Aluminum"
+    },
+    {
+      "layers": 2,
+      "spacing": 0.8,
+      "thickness": 3,
+      "material": "Silver"
+    },
+    {
+      "layers": 5,
+      "spacing": 0.2,
+      "thickness": 1,
+      "material": "Gold"
+    },
+    {
+      "layers": 3,
+      "spacing": 0.4,
+      "thickness": 2.5,
+      "material": "Copper"
+    },
+    {
+      "layers": 4,
+      "spacing": 0.3,
+      "thickness": 2,
+      "material": "Aluminum"
+    },
+    {
+      "layers": 2,
+      "spacing": 0.6,
+      "thickness": 2.5,
+      "material": "Silver"
+    },
+    {
+      "layers": 4,
+      "spacing": 0.2,
+      "thickness": 1.5,
+      "material": "Gold"
+    },
+    {
+      "layers": 3,
+      "spacing": 0.5,
+      "thickness": 2,
+      "material": "Copper"
+    },
+    {
+      "layers": 5,
+      "spacing": 0.3,
+      "thickness": 1,
+      "material": "Aluminum"
+    },
+
+    {
+        "layers": 3,
+        "spacing": 0.4,
+        "thickness": 2,
+        "material": "Stainless Steel"
+      },
+      {
+        "layers": 4,
+        "spacing": 0.6,
+        "thickness": 1.5,
+        "material": "Dielectric Material"
+      },
+      {
+        "layers": 2,
+        "spacing": 0.7,
+        "thickness": 3.5,
+        "material": "Carbon Nanotubes"
+      },
+      {
+        "layers": 5,
+        "spacing": 0.5,
+        "thickness": 1.2,
+        "material": "Graphene"
+      },
+      {
+        "layers": 3,
+        "spacing": 0.3,
+        "thickness": 2.2,
+        "material": "Conductive Polymer"
+      },
+      {
+        "layers": 4,
+        "spacing": 0.4,
+        "thickness": 1.8,
+        "material": "Teflon"
+      },
+      {
+        "layers": 2,
+        "spacing": 0.6,
+        "thickness": 2.8,
+        "material": "Aluminum"
+      },
+      {
+        "layers": 4,
+        "spacing": 0.5,
+        "thickness": 1.5,
+        "material": "Stainless Steel"
+      },
+      {
+        "layers": 3,
+        "spacing": 0.7,
+        "thickness": 2.5,
+        "material": "Dielectric Material"
+      },
+      {
+        "layers": 5,
+        "spacing": 0.4,
+        "thickness": 1.2,
+        "material": "Carbon Nanotubes"
+      },
+      {
+        "layers": 4,
+        "spacing": 0.5,
+        "thickness": 2,
+        "material": "Silver"
+      },
+      {
+        "layers": 3,
+        "spacing": 0.3,
+        "thickness": 1.5,
+        "material": "Gold"
+      },
+      {
+        "layers": 5,
+        "spacing": 0.4,
+        "thickness": 2.5,
+        "material": "Copper"
+      },
+      {
+        "layers": 2,
+        "spacing": 0.2,
+        "thickness": 1,
+        "material": "Aluminum"
+      },
+      {
+        "layers": 4,
+        "spacing": 0.3,
+        "thickness": 2,
+        "material": "Silver"
+      },
+      {
+        "layers": 3,
+        "spacing": 0.5,
+        "thickness": 1.5,
+        "material": "Gold"
+      },
+      {
+        "layers": 5,
+        "spacing": 0.2,
+        "thickness": 2.5,
+        "material": "Copper"
+      },
+      {
+        "layers": 2,
+        "spacing": 0.4,
+        "thickness": 1,
+        "material": "Aluminum"
+      },
+      {
+        "layers": 4,
+        "spacing": 0.2,
+        "thickness": 2,
+        "material": "Silver"
+      },
+      {
+        "layers": 3,
+        "spacing": 0.4,
+        "thickness": 1.5,
+        "material": "Gold"
+      },
+      {
+        "layers": 5,
+        "spacing": 0.3,
+        "thickness": 2.5,
+        "material": "Copper"
+      },
+      {
+        "layers": 2,
+        "spacing": 0.5,
+        "thickness": 1,
+        "material": "Aluminum"
+      },
+      {
+        "layers": 4,
+        "spacing": 0.4,
+        "thickness": 2,
+        "material": "Silver"
+      },
+      {
+        "layers": 3,
+        "spacing": 0.2,
+        "thickness": 1.5,
+        "material": "Gold"
+      },
+      {
+        "layers": 5,
+        "spacing": 0.5,
+        "thickness": 2.5,
+        "material": "Copper"
+      },
+      {
+        "layers": 2,
+        "spacing": 0.3,
+        "thickness": 1,
+        "material": "Aluminum"
+      },
+      {
+        "layers": 4,
+        "spacing": 0.5,
+        "thickness": 2,
+        "material": "Silver"
+      },
+      {
+        "layers": 3,
+        "spacing": 0.4,
+        "thickness": 1.5,
+        "material": "Gold"
+      },
+      {
+        "layers": 5,
+        "spacing": 0.2,
+        "thickness": 2.5,
+        "material": "Copper"
+      },
+      {
+        "layers": 2,
+        "spacing": 0.3,
+        "thickness": 1,
+        "material": "Aluminum"
+      },
+      {
+        "layers": 4,
+        "spacing": 0.4,
+        "thickness": 2,
+        "material": "Silver"
+      },
+      {
+        "layers": 3,
+        "spacing": 0.5,
+        "thickness": 1.5,
+        "material": "Gold"
+      },
+      {
+        "layers": 5,
+        "spacing": 0.3,
+        "thickness": 2.5,
+        "material": "Copper"
+      },
+      {
+        "layers": 2,
+        "spacing": 0.2,
+        "thickness": 1,
+        "material": "Aluminum"
+      },
+      {
+        "layers": 4,
+        "spacing": 0.3,
+        "thickness": 2,
+        "material": "Silver"
+      },
+      {
+        "layers": 3,
+        "spacing": 0.4,
+        "thickness": 1.5,
+        "material": "Gold"
+      },
+      {
+        "layers": 5,
+        "spacing": 0.5,
+        "thickness": 2.5,
+        "material": "Copper"
+      },
+      {
+        "layers": 2,
+        "spacing": 0.2,
+        "thickness": 1,
+        "material": "Aluminum"
+      },
+      {
+        "layers": 4,
+        "spacing": 0.4,
+        "thickness": 2,
+        "material": "Silver" 
+      }
+  ]
+
