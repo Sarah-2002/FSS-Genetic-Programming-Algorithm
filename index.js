@@ -24,7 +24,64 @@ const generations = 1000;
 const mutationRate = 0.087;
 const crossoverRate = 0.654;
 
+// Sample FSS configurations
+const fssConfigurations = Array.from(constraintsMap.values());
 
+// Frequencies to block
+const frequenciesToBlock = [
+  { frequency: "2.45 GHz", description: "Microwave Ovens" },
+  { frequency: "24 GHz", description: "Some Industrial, Scientific, and Medical (ISM) Applications" },
+  // I can dd more .... //
+];
+
+// Function to check if the FSS material blocks a specific frequency
+function blocksFrequency(material, frequency) {
+  // For simplicity we'll consider Copper and Aluminum only // 
+  const blockingMaterials = {
+    "Copper": ["2.45 GHz"],
+    "Aluminum": ["24 GHz"],
+    // I can add more FSS materials and their blocking frequencies here
+  };
+
+  return blockingMaterials[material]?.includes(frequency);
+}
+
+//  Now we Calculate the percentage of frequencies blocked for each FSS material
+// array of all the material types we have in our JSON data //
+const fssMaterials = ["Copper", "Aluminum", "Silver", "Gold", "Stainless Steel", "Dielectric Material", "Carbon Nanotubes", "Graphene", "Teflon", "Conductive Polymer"];
+let frequenciesBlockedByMaterial = {};
+
+for (const material of fssMaterials) {
+  let numFrequenciesBlocked = 0;
+
+  for (const frequency of frequenciesToBlock) {
+    if (blocksFrequency(material, frequency.frequency)) {
+      numFrequenciesBlocked++;
+    }
+  }
+
+  const percentageBlocked = (numFrequenciesBlocked / frequenciesToBlock.length) * 100;
+  frequenciesBlockedByMaterial[material] = percentageBlocked;
+}
+
+// Function to calculate fitness score for each FSS configuration
+function calculateFitnessScore(fssConfigurations) {
+  let fitnessScores = [];
+
+  for (const fssConfig of fssConfigurations) {
+    const { material } = fssConfig;
+    const fitnessScore = frequenciesBlockedByMaterial[material] || 0;
+    fitnessScores.push({ fssConfig, fitnessScore });
+  }
+
+  return fitnessScores;
+}
+
+// Call the fitness function to get the fitness scores for each FSS configuration
+const fitnessScores = calculateFitnessScore(fssConfigurations);
+
+console.log("Fitness Scores for each FSS Configuration:");
+console.log(fitnessScores);
 
 // Fitness Function: Evaluate the fitness of an FSS configuration
 function fitnessFunction(configuration) {
