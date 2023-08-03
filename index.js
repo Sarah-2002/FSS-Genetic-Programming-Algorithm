@@ -90,10 +90,12 @@ function fitnessFunction(configuration) {
   console.log("Fitness Scores for each FSS Configuration:");
   console.log(fitnessScores);
 
+// ************************************************************************************************************************************************************************************** //
+
 // Genetic Algorithm
 function geneticAlgorithm() {
   // Initialize the population with random FSS configurations
-  let population = [];
+  let population = fssConfigurations ;
   for (let i = 0; i < populationSize; i++) {
     // Generate random FSS configurations that satisfy the constraints
     let randomConfiguration = generateRandomConfiguration(constraints);
