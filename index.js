@@ -47,6 +47,7 @@ function blocksFrequency(material, frequency) {
 }
 
 //  Now we Calculate the percentage of frequencies blocked for each FSS material
+
 // array of all the material types we have in our JSON data //
 const fssMaterials = ["Copper", "Aluminum", "Silver", "Gold", "Stainless Steel", "Dielectric Material", "Carbon Nanotubes", "Graphene", "Teflon", "Conductive Polymer"];
 let frequenciesBlockedByMaterial = {};
@@ -96,17 +97,14 @@ function fitnessFunction(configuration) {
 function geneticAlgorithm() {
   // Initialize the population with random FSS configurations
   let population = fssConfigurations ;
-  for (let i = 0; i < populationSize; i++) {
-    // Generate random FSS configurations that satisfy the constraints
-    let randomConfiguration = generateRandomConfiguration(constraints);
-    population.push(randomConfiguration);
-  }
+  
 
   // Evolution loop
   for (let generation = 0; generation < generations; generation++) {
+
     // Evaluate the fitness of each FSS configuration in the population
-    population.forEach(configuration => {
-      configuration.fitness = fitnessFunction(configuration);
+    population.forEach(fssConfigurations => {
+      fssConfigurations.fitness = fitnessFunction(fssConfigurations);
     });
 
     // Sort the population based on fitness (descending order)
@@ -136,11 +134,6 @@ function geneticAlgorithm() {
   return population[0];
 }
 
-// Utility functions (to be implemented)
-function generateRandomConfiguration(constraints) {
-  // Generate a random FSS configuration that satisfies the constraints
-  // Your code here...
-}
 
 function selectParent(population) {
   // Select a parent based on their fitness using a selection method (e.g., Roulette Wheel)
