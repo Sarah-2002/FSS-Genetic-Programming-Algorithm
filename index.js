@@ -31,7 +31,7 @@ const fssConfigurations = Array.from(constraintsMap.values());
 const frequenciesToBlock = [
   { frequency: "2.45 GHz", description: "Microwave Ovens" },
   { frequency: "24 GHz", description: "Some Industrial, Scientific, and Medical (ISM) Applications" },
-  // I can dd more .... //
+  // I can add more .... //
 ];
 
 // Function to check if the FSS material blocks a specific frequency
@@ -64,32 +64,30 @@ for (const material of fssMaterials) {
   frequenciesBlockedByMaterial[material] = percentageBlocked;
 }
 
-// Function to calculate fitness score for each FSS configuration
-function calculateFitnessScore(fssConfigurations) {
-  let fitnessScores = [];
-
-  for (const fssConfig of fssConfigurations) {
-    const { material } = fssConfig;
-    const fitnessScore = frequenciesBlockedByMaterial[material] || 0;
-    fitnessScores.push({ fssConfig, fitnessScore });
-  }
-
-  return fitnessScores;
-}
-
-// Call the fitness function to get the fitness scores for each FSS configuration
-const fitnessScores = calculateFitnessScore(fssConfigurations);
-
-console.log("Fitness Scores for each FSS Configuration:");
-console.log(fitnessScores);
-
 // Fitness Function: Evaluate the fitness of an FSS configuration
 function fitnessFunction(configuration) {
-  // Your fitness function code here...
-  // This function should evaluate the efficiency of an FSS configuration
-  // based on the constraints and optimization objectives.
-  // Higher fitness scores indicate better FSS designs.
-}
+    let numFrequenciesBlocked = 0;
+  
+    for (const frequency of frequenciesToBlock) {
+      if (blocksFrequency(configuration.material, frequency.frequency)) {
+        numFrequenciesBlocked++;
+      }
+    }
+  
+    const totalFrequencies = frequenciesToBlock.length;
+    const percentageBlocked = (numFrequenciesBlocked / totalFrequencies) * 100;
+    
+    // Higher fitness scores indicate better FSS designs.
+    return percentageBlocked;
+  }
+  
+  // Calculate the fitness scores for each FSS configuration
+  const fitnessScores = fssConfigurations.map((config) => ({
+    fssConfig: config,
+    fitnessScore: fitnessFunction(config),
+  }));
+  
+  
 
 // Genetic Algorithm
 function geneticAlgorithm() {
