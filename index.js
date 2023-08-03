@@ -87,7 +87,8 @@ function fitnessFunction(configuration) {
     fitnessScore: fitnessFunction(config),
   }));
   
-  
+  console.log("Fitness Scores for each FSS Configuration:");
+  console.log(fitnessScores);
 
 // Genetic Algorithm
 function geneticAlgorithm() {
