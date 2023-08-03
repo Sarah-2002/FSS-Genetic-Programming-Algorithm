@@ -93,6 +93,22 @@ function fitnessFunction(configuration) {
 
 // ************************************************************************************************************************************************************************************** //
 
+function selectParent(population) {
+    // Select a parent based on their fitness using a selection method (e.g., Roulette Wheel)
+    // Your code here...
+  }
+  
+  function crossover(parent1, parent2) {
+    // Perform crossover between two parents to create a new child
+    // Your code here...
+  }
+  
+  function mutate(child, mutationRate) {
+    // Introduce random changes in the child's FSS configuration with a given mutation rate
+    // Your code here...
+  }
+
+  
 // Genetic Algorithm
 function geneticAlgorithm() {
   // Initialize the population with random FSS configurations
@@ -133,18 +149,5 @@ for (let generation = 0; generation < generations; generation++) {
   return population[0]; 
 }
 
-function selectParent(population) {
-  // Select a parent based on their fitness using a selection method (e.g., Roulette Wheel)
-  // Your code here...
-}
 
-function crossover(parent1, parent2) {
-  // Perform crossover between two parents to create a new child
-  // Your code here...
-}
-
-function mutate(child, mutationRate) {
-  // Introduce random changes in the child's FSS configuration with a given mutation rate
-  // Your code here...
-}
 
