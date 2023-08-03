@@ -1,10 +1,32 @@
-// Genetic Algorithm Parameters
-const populationSize = 100;
-const generations = 100;
-const mutationRate = 0.1;
-const crossoverRate = 0.7;
+const fs = require('fs');
 
-// FSS Configuration Constraints (from your previous list)
+
+fs.readFile('data.json', 'utf-8',(err,data)=>{
+    if(err){
+        console.error('Error at ',err);
+        return;
+    }
+
+    const usedData = JSON.parse(data);
+    const constraintsMap = new Map();
+    // Add the Data into the Maps//
+    usedData.forEach((item,index)=>{
+        const key = `obj${index+1}` ;
+        constraintsMap.set(key,item);
+    });
+})
+
+
+
+
+
+// Genetic Algorithm Parameters
+const populationSize = 100000;
+const generations = 1000;
+const mutationRate = 0.087;
+const crossoverRate = 0.654;
+
+//  FSS Configuration Constraints 
 const constraints = [
   { layers: 3, spacing: 0.5, thickness: 2, material: "Copper" },
   // Add other constraints here...
