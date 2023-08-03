@@ -146,9 +146,41 @@ function geneticAlgorithm() {
   }
 
 
-  function selectParent(population) {
-    // Select a parent based on their fitness using a selection method (e.g., Roulette Wheel)
+ // Function to perform Stochastic Universal Sampling (SUS) for parent selection
+function selectParent(population) {
+    const totalFitness = population.reduce((sum, config) => sum + config.fitness, 0);
+    const averageFitness = totalFitness / population.length;
   
+    // Calculate the sum of squared fitness deviations
+    const squaredDeviationsSum = population.reduce(
+      (sum, config) => sum + Math.pow(config.fitness - averageFitness, 2),
+      0
+    );
+  
+    // Calculate the standard deviation of fitness
+    const standardDeviation = Math.sqrt(squaredDeviationsSum / population.length);
+  
+    // Create evenly spaced pointers on the roulette wheel
+    const pointers = [];
+    const pointerDistance = totalFitness / populationSize;
+    let start = Math.random() * pointerDistance;
+    for (let i = 0; i < populationSize; i++) {
+      pointers.push(start + i * pointerDistance);
+    }
+  
+    // Select parents using SUS
+    const parents = [];
+    let currentFitness = population[0].fitness;
+    let currentIndex = 0;
+    for (let pointer of pointers) {
+      while (pointer > currentFitness) {
+        currentIndex = (currentIndex + 1) % population.length;
+        currentFitness += population[currentIndex].fitness;
+      }
+      parents.push(population[currentIndex]);
+    }
+  
+    return parents;
   }
   
   function crossover(parent1, parent2) {
@@ -160,5 +192,5 @@ function geneticAlgorithm() {
     // Introduce random changes in the child's FSS configuration with a given mutation rate
    
   }
-  
+
 
