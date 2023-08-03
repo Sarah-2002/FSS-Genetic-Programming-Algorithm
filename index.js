@@ -93,61 +93,72 @@ function fitnessFunction(configuration) {
 
 // ************************************************************************************************************************************************************************************** //
 
-function selectParent(population) {
+
+
+
+// Genetic Algorithm
+function geneticAlgorithm() {
+    // Initialize the population with FSS configurations from data.json
+    let population = fssConfigurations;
+  
+    // Keep track of the best FSS configuration
+    let bestConfiguration = null;
+    let bestFitness = 0;
+  
+    // Evolution loop
+    for (let generation = 0; generation < generations; generation++) {
+      // Evaluate the fitness of each FSS configuration in the population
+      population.forEach(config => {
+        config.fitness = fitnessFunction(config);
+      });
+  
+      // Sort the population based on fitness (descending order)
+      population.sort((a, b) => b.fitness - a.fitness);
+  
+      // Check if the best configuration in this generation is better than the overall best
+      if (population[0].fitness > bestFitness) {
+        bestConfiguration = population[0];
+        bestFitness = population[0].fitness;
+      }
+  
+      // Perform selection, crossover, and mutation to create the next generation
+      let newPopulation = [];
+      while (newPopulation.length < populationSize) {
+        // Perform selection: Choose two parents based on their fitness
+        let parent1 = selectParent(population);
+        let parent2 = selectParent(population);
+  
+        // Perform crossover: Create a new child by combining the parents
+        let child = crossover(parent1, parent2);
+  
+        // Perform mutation: Introduce random changes in the child
+        mutate(child, mutationRate);
+  
+        newPopulation.push(child);
+      }
+  
+      // Replace the old population with the new one
+      population = newPopulation;
+    }
+  
+    // Return the best FSS configuration after the evolution process
+    return bestConfiguration;
+  }
+
+
+  function selectParent(population) {
     // Select a parent based on their fitness using a selection method (e.g., Roulette Wheel)
-    // Your code here...
+  
   }
   
   function crossover(parent1, parent2) {
     // Perform crossover between two parents to create a new child
-    // Your code here...
+  
   }
   
   function mutate(child, mutationRate) {
     // Introduce random changes in the child's FSS configuration with a given mutation rate
-    // Your code here...
-  }
-
-  
-// Genetic Algorithm
-function geneticAlgorithm() {
-  // Initialize the population with random FSS configurations
-  let population = fssConfigurations ;
-  
-// Evolution loop
-for (let generation = 0; generation < generations; generation++) {
-
-    // Evaluate the fitness of each FSS configuration in the population
-    population.forEach(config => {
-      config.fitness = fitnessFunction(config);
-    });
-  
-    // Sort the population based on fitness (descending order)
-    population.sort((a, b) => b.fitness - a.fitness);
-  
-    // Perform selection, crossover, and mutation to create the next generation
-    let newPopulation = [];
-    while (newPopulation.length < populationSize) {
-      // Perform selection: Choose two parents based on their fitness
-      let parent1 = selectParent(population);
-      let parent2 = selectParent(population);
-  
-      // Perform crossover: Create a new child by combining the parents
-      let child = crossover(parent1, parent2);
-  
-      // Perform mutation: Introduce random changes in the child
-      mutate(child, mutationRate);
-  
-      newPopulation.push(child);
-    }
-  
-    // Replace the old population with the new one
-    population = newPopulation;
+   
   }
   
-  // Return the best FSS configuration after the evolution process
-  return population[0]; 
-}
-
-
 
