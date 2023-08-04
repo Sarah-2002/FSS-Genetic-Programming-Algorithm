@@ -279,24 +279,16 @@ function selectParent(population) {
 
 
 
-// Method 3 //
+// Method 3 : Uniform Crossover  //
 
 
+// Function to perform Uniform Crossover between two parents
+function crossoverUniform(parent1, parent2) {
+  // Create a new child by randomly selecting genetic material from both parents
+  const child = parent1.map((gene, index) => (Math.random() < 0.5 ? gene : parent2[index]));
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  return child;
+}
 
   */
   
