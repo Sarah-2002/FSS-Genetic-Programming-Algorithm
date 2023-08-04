@@ -257,6 +257,48 @@ function selectParent(population) {
   
     return child;
   }
+
+
+  /*
+
+  // Method 2 : 
+  function crossoverTwoPoint(parent1, parent2) {
+  const crossoverPoint1 = Math.floor(Math.random() * parent1.length);
+  const crossoverPoint2 = Math.floor(Math.random() * parent1.length);
+
+  // Ensure crossoverPoint1 is smaller than crossoverPoint2
+  const start = Math.min(crossoverPoint1, crossoverPoint2);
+  const end = Math.max(crossoverPoint1, crossoverPoint2);
+
+  // Create a new child by combining genetic material from both parents
+  const child = [...parent1.slice(0, start), ...parent2.slice(start, end), ...parent1.slice(end)];
+
+  return child;
+}
+
+
+
+
+// Method 3 //
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  */
   
   function mutate(child, mutationRate) {
     // Introduce random changes in the child's FSS configuration with a given mutation rate
