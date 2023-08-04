@@ -216,56 +216,33 @@ function selectParent(population) {
 
 Method 3 :
 
+function selectParent(population) {
+  // Function to perform Rank Selection for parent selection
+  const rankedPopulation = population.slice().sort((a, b) => b.fitness - a.fitness);
 
+  // Calculate the selection probabilities based on the rank
+  const rankSum = (populationSize * (populationSize + 1)) / 2;
+  const selectionProbabilities = rankedPopulation.map((config, index) => (index + 1) / rankSum);
 
+  // Select parents using Rank Selection
+  const parents = [];
+  for (let i = 0; i < populationSize; i++) {
+    // Generate a random number between 0 and 1
+    const randomProbability = Math.random();
 
+    // Find the individual whose probability interval contains the random number
+    let cumulativeProbability = 0;
+    for (let j = 0; j < populationSize; j++) {
+      cumulativeProbability += selectionProbabilities[j];
+      if (randomProbability <= cumulativeProbability) {
+        parents.push(rankedPopulation[j]);
+        break;
+      }
+    }
+  }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  return parents;
+}
 
   */
   
