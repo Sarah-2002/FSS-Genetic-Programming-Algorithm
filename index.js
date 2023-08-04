@@ -2,6 +2,9 @@ const fs = require('fs');
 
 //  FSS Configuration Constraints 
 
+
+const constraintsMap = new Map();
+
 fs.readFile('data.json', 'utf-8',(err,data)=>{
     if(err){
         console.error('Error at ',err);
@@ -9,12 +12,13 @@ fs.readFile('data.json', 'utf-8',(err,data)=>{
     }
 
     const usedData = JSON.parse(data);
-    const constraintsMap = new Map();
+   
     // Add the Data into the Maps//
     usedData.forEach((item,index)=>{
         const key = `obj${index+1}` ;
         constraintsMap.set(key,item);
     });
+    return constraintsMap ;
 })
 
 
