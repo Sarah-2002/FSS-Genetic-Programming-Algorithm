@@ -146,8 +146,9 @@ function geneticAlgorithm() {
   }
 
 
- // Function to perform Stochastic Universal Sampling (SUS) for parent selection
+
 function selectParent(population) {
+   // Function to perform Stochastic Universal Sampling (SUS) for parent selection Method 1
     const totalFitness = population.reduce((sum, config) => sum + config.fitness, 0);
     const averageFitness = totalFitness / population.length;
   
@@ -181,6 +182,8 @@ function selectParent(population) {
     }
   
     return parents;
+
+    
   }
   
   function crossover(parent1, parent2) {
