@@ -248,7 +248,14 @@ function selectParent(population) {
   
   function crossover(parent1, parent2) {
     // Perform crossover between two parents to create a new child
+
+    // Method 1  Single-Point Crossover //
+    const crossoverPoint = Math.floor(Math.random() * parent1.length);
+
+    // Create a new child by combining genetic material from both parents
+    const child = [...parent1.slice(0, crossoverPoint), ...parent2.slice(crossoverPoint)];
   
+    return child;
   }
   
   function mutate(child, mutationRate) {
