@@ -293,7 +293,15 @@ function crossoverUniform(parent1, parent2) {
   */
   
   function mutate(child, mutationRate) {
-    // Introduce random changes in the child's FSS configuration with a given mutation rate
+    // Method 1 : Random Mutation //
+    for (let i = 0; i < child.length; i++) {
+      // Introduce random changes with a probability of mutationRate
+      if (Math.random() < mutationRate) {
+        // Randomly change the value of the gene (FSS configuration parameter)
+        // Here, you can define the range of values for each gene based on your constraints
+        child[i] = Math.random() * (MAX_VALUE - MIN_VALUE) + MIN_VALUE;
+      }
+    }
    
   }
 
