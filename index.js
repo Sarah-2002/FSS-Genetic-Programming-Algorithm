@@ -183,8 +183,64 @@ function selectParent(population) {
   
     return parents;
 
-    
+
   }
+
+  /*  Method 2 :
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  */
   
   function crossover(parent1, parent2) {
     // Perform crossover between two parents to create a new child
