@@ -324,19 +324,21 @@ function mutateGaussian(child, mutationRate) {
 }
 
 
+// Method 3 : Swap Method //
 
-
-
-
-
-
-
-
-
-
-
-
-
+// Function to perform Swap Mutation in the child's FSS configuration
+function mutateSwap(child, mutationRate) {
+  for (let i = 0; i < child.length; i++) {
+    // Introduce swap mutation with a probability of mutationRate
+    if (Math.random() < mutationRate) {
+      const randomIndex = Math.floor(Math.random() * child.length);
+      // Swap the values of two random genes in the child's FSS configuration
+      const temp = child[i];
+      child[i] = child[randomIndex];
+      child[randomIndex] = temp;
+    }
+  }
+}
 
   */
 
