@@ -27,7 +27,7 @@ const crossoverRate = 0.654;
 // Sample FSS configurations
 const fssConfigurations = Array.from(constraintsMap.values());
 
-// Frequencies to block
+// Sample Frequencies to block
 const frequenciesToBlock = [
   { frequency: "2.45 GHz", description: "Microwave Ovens" },
   { frequency: "24 GHz", description: "Some Industrial, Scientific, and Medical (ISM) Applications" },
@@ -326,7 +326,6 @@ function mutateGaussian(child, mutationRate) {
 
 // Method 3 : Swap Method //
 
-// Function to perform Swap Mutation in the child's FSS configuration
 function mutateSwap(child, mutationRate) {
   for (let i = 0; i < child.length; i++) {
     // Introduce swap mutation with a probability of mutationRate
@@ -342,3 +341,5 @@ function mutateSwap(child, mutationRate) {
 
   */
 
+const bestFSSConfig = geneticAlgorithm();
+console.log("Best FSS Configuration :" + bestFSSConfig );
