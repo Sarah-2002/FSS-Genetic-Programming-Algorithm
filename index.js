@@ -305,4 +305,38 @@ function crossoverUniform(parent1, parent2) {
    
   }
 
+  /* 
+
+
+  Method 2 : Gaussian Mutation 
+// Function to perform Gaussian Mutation in the child's FSS configuration
+function mutateGaussian(child, mutationRate) {
+  const mutationAmount = mutationRate * (MAX_VALUE - MIN_VALUE);
+
+  for (let i = 0; i < child.length; i++) {
+    // Introduce Gaussian-distributed random changes with a mean of 0 and standard deviation of mutationAmount
+    if (Math.random() < mutationRate) {
+      child[i] += (Math.random() - 0.5) * 2 * mutationAmount;
+      // Make sure the value stays within the allowed range defined by your constraints
+      child[i] = Math.max(Math.min(child[i], MAX_VALUE), MIN_VALUE);
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  */
 
