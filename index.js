@@ -18,7 +18,10 @@ fs.readFile('data.json', 'utf-8',(err,data)=>{
         const key = `obj${index+1}` ;
         constraintsMap.set(key,item);
     });
+    
     return constraintsMap ;
+    c
+ 
 })
 
 
