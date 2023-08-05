@@ -20,7 +20,7 @@ fs.readFile('data.json', 'utf-8',(err,data)=>{
     });
     
     return constraintsMap ;
-    c
+    
  
 })
 
