@@ -79,9 +79,20 @@ const weightSpacing = 2;
 const weightLayers = 3;
 const weightThickness = 4;
 
-// Fitness Function: Evaluate the fitness of an FSS configuration
-function fitnessFunction(configuration, percentageBlocked) {
-// Calculate a fitness score based on frequency blocking, spacing, layers, and thickness
+// Hypothetical Fitness Function: Evaluate the fitness of an FSS configuration
+function fitnessFunction(configuration) {
+  let numFrequenciesBlocked = 0;
+
+  for (const frequency of frequenciesToBlock) {
+    if (blocksFrequency(configuration.material, frequency.frequency)) {
+      numFrequenciesBlocked++;
+    }
+  }
+
+  const totalFrequencies = frequenciesToBlock.length;
+  const percentageBlocked = (numFrequenciesBlocked / totalFrequencies) * 100;
+
+  // Calculate a fitness score based on frequency blocking, spacing, layers, and thickness
   const fitnessScore =
     weightFrequency * percentageBlocked +
     weightSpacing * (1 / configuration.spacing) +
@@ -219,4 +230,4 @@ function mutate(child, mutationRate) {
 
 const bestFSSConfig = geneticAlgorithm();
 console.log("Best FSS Configuration :");
-console.log(bestFSSConfig); 
+console.log(bestFSSConfig);
