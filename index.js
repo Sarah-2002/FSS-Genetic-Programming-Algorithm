@@ -17,8 +17,8 @@ console.log(constraintsMap);
 // Genetic Algorithm Parameters
 const populationSize = 360;
 const generations = 1000;
-const mutationRate = 0.087;
-const crossoverRate = 0.654;
+const mutationRate = 0.05; // 5% starting point
+const crossoverRate = 0.7; //70% starting point
 
 // Sample FSS configurations
 const fssConfigurations = Array.from(constraintsMap.values());
