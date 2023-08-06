@@ -12,16 +12,7 @@ data.forEach((item, index) => {
   constraintsMap.set(key, item);
 });
 
-console.log(constraintsMap);
-
-// Genetic Algorithm Parameters
-const populationSize = 360;
-const generations = 1000;
-const mutationRate = 0.05; // 5% starting point
-const crossoverRate = 0.7; //70% starting point
-
-// Sample FSS configurations
-const fssConfigurations = Array.from(constraintsMap.values());
+//console.log(constraintsMap);
 
 // Sample Frequencies to block
 const frequenciesToBlock = [
@@ -32,6 +23,7 @@ const frequenciesToBlock = [
   },
   // I can add more .... //
 ];
+
 
 // Function to check if the FSS material blocks a specific frequency
 function blocksFrequency(material, frequency) {
@@ -75,6 +67,22 @@ for (const material of fssMaterials) {
     (numFrequenciesBlocked / frequenciesToBlock.length) * 100;
   frequenciesBlockedByMaterial[material] = percentageBlocked;
 }
+
+
+
+// Genetic Algorithm Parameters
+const populationSize = 360;
+const generations = 1000;
+const mutationRate = 0.05; // 5% starting point
+const crossoverRate = 0.7; //70% starting point
+
+// Sample FSS configurations
+const fssConfigurations = Array.from(constraintsMap.values());
+
+
+
+
+
 
 // Hypothetical Weight Values
 const weightFrequency = 1;
