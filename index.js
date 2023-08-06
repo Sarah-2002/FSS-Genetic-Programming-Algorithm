@@ -4,17 +4,12 @@ const fs = require("fs");
 const constraintsMap = new Map();
 
 const data = JSON.parse(fs.readFileSync("./data.json").toString());
-console.log(data);
 
 // Add the Data into the Maps//
 data.forEach((item, index) => {
   const key = `obj${index + 1}`;
   constraintsMap.set(key, item);
 });
-
-//console.log(constraintsMap);
-
-
 
 // Sample FSS configurations
 const fssConfigurations = Array.from(constraintsMap.values());
@@ -28,7 +23,6 @@ const frequenciesToBlock = [
   },
   // I can add more .... //
 ];
-
 
 // Function to check if the FSS material blocks a specific frequency
 function blocksFrequency(material, frequency) {
@@ -73,17 +67,11 @@ for (const material of fssMaterials) {
   frequenciesBlockedByMaterial[material] = percentageBlocked;
 }
 
-
-
 // Genetic Algorithm Parameters
 const populationSize = 360;
 const generations = 1000;
 const mutationRate = 0.05; // 5% starting point
 const crossoverRate = 0.7; //70% starting point
-
-
-
-
 
 // Hypothetical Weight Values
 const weightFrequency = 1;
@@ -91,20 +79,9 @@ const weightSpacing = 2;
 const weightLayers = 3;
 const weightThickness = 4;
 
-// Hypothetical Fitness Function: Evaluate the fitness of an FSS configuration
-function fitnessFunction(configuration) {
-  let numFrequenciesBlocked = 0;
-
-  for (const frequency of frequenciesToBlock) {
-    if (blocksFrequency(configuration.material, frequency.frequency)) {
-      numFrequenciesBlocked++;
-    }
-  }
-
-  const totalFrequencies = frequenciesToBlock.length;
-  const percentageBlocked = (numFrequenciesBlocked / totalFrequencies) * 100;
-
-  // Calculate a fitness score based on frequency blocking, spacing, layers, and thickness
+// Fitness Function: Evaluate the fitness of an FSS configuration
+function fitnessFunction(configuration, percentageBlocked) {
+// Calculate a fitness score based on frequency blocking, spacing, layers, and thickness
   const fitnessScore =
     weightFrequency * percentageBlocked +
     weightSpacing * (1 / configuration.spacing) +
@@ -115,8 +92,7 @@ function fitnessFunction(configuration) {
   return fitnessScore;
 }
 
-
-// ************************************************************** //
+// ********************** //
 
 // Genetic Algorithm
 function geneticAlgorithm() {
@@ -138,7 +114,6 @@ function geneticAlgorithm() {
     population.sort((a, b) => b.fitness - a.fitness);
 
     // Check if the best configuration in this generation is better than the overall best
-    console.log(population[0].fitness);
     if (population[0].fitness > bestFitness) {
       bestConfiguration = population[0];
       bestFitness = population[0].fitness;
@@ -243,4 +218,5 @@ function mutate(child, mutationRate) {
 }
 
 const bestFSSConfig = geneticAlgorithm();
-console.log("Best FSS Configuration :" + bestFSSConfig); 
+console.log("Best FSS Configuration :");
+console.log(bestFSSConfig); 
