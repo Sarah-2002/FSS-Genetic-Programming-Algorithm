@@ -69,13 +69,13 @@ for (const material of fssMaterials) {
 
 // Genetic Algorithm Parameters
 const populationSize = 360;
-const generations = 1000;
+const generations = 460;
 const mutationRate = 0.05; // 5% starting point
 const crossoverRate = 0.7; //70% starting point
 
 // Hypothetical Weight Values
 const weightFrequency = 1;
-const weightSpacing = 2;
+const weightSpacing = 3;
 const weightLayers = 3;
 const weightThickness = 4;
 
