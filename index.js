@@ -15,7 +15,7 @@ data.forEach((item, index) => {
 console.log(constraintsMap);
 
 // Genetic Algorithm Parameters
-const populationSize = 100000;
+const populationSize = 360;
 const generations = 1000;
 const mutationRate = 0.087;
 const crossoverRate = 0.654;
