@@ -154,26 +154,51 @@ function geneticAlgorithm() {
   }
 
 
-
+  function selectParent(population) {
+    // Function to perform Stochastic Universal Sampling (SUS) for parent selection Method 1
+     const totalFitness = population.reduce((sum, config) => sum + config.fitness, 0);
+     const averageFitness = totalFitness / population.length;
+   
+     // Calculate the sum of squared fitness deviations
+     const squaredDeviationsSum = population.reduce(
+       (sum, config) => sum + Math.pow(config.fitness - averageFitness, 2),
+       0
+     );
+   
+     // Calculate the standard deviation of fitness
+     const standardDeviation = Math.sqrt(squaredDeviationsSum / population.length);
+   
+     // Create evenly spaced pointers on the roulette wheel
+     const pointers = [];
+     const pointerDistance = totalFitness / populationSize;
+     let start = Math.random() * pointerDistance;
+     for (let i = 0; i < populationSize; i++) {
+       pointers.push(start + i * pointerDistance);
+     }
+   
+     // Select parents using SUS
+     const parents = [];
+     let currentFitness = population[0].fitness;
+     let currentIndex = 0;
+     for (let pointer of pointers) {
+       while (pointer > currentFitness) {
+         currentIndex = (currentIndex + 1) % population.length;
+         currentFitness += population[currentIndex].fitness;
+       }
+       parents.push(population[currentIndex]);
+     }
+   
+     return parents;
+ 
+ 
+   }
+ 
 
   
+
+
+  //Cross Over : 
   function crossover(parent1, parent2) {
-    // Perform crossover between two parents to create a new child
-
-    // Method 1  Single-Point Crossover //
-    const crossoverPoint = Math.floor(Math.random() * parent1.length);
-
-    // Create a new child by combining genetic material from both parents
-    const child = [...parent1.slice(0, crossoverPoint), ...parent2.slice(crossoverPoint)];
-  
-    return child;
-  }
-
-
-  /*
-
-  // Method 2 : 
-  function crossoverTwoPoint(parent1, parent2) {
   const crossoverPoint1 = Math.floor(Math.random() * parent1.length);
   const crossoverPoint2 = Math.floor(Math.random() * parent1.length);
 
@@ -189,55 +214,12 @@ function geneticAlgorithm() {
 
 
 
-
-// Method 3 : Uniform Crossover  //
-
-
-// Function to perform Uniform Crossover between two parents
-function crossoverUniform(parent1, parent2) {
-  // Create a new child by randomly selecting genetic material from both parents
-  const child = parent1.map((gene, index) => (Math.random() < 0.5 ? gene : parent2[index]));
-
-  return child;
-}
-
-  */
   
-  function mutate(child, mutationRate) {
-    // Method 1 : Random Mutation //
-    for (let i = 0; i < child.length; i++) {
-      // Introduce random changes with a probability of mutationRate
-      if (Math.random() < mutationRate) {
-        // Randomly change the value of the gene (FSS configuration parameter)
-        // Here, you can define the range of values for each gene based on your constraints
-        child[i] = Math.random() * (MAX_VALUE - MIN_VALUE) + MIN_VALUE;
-      }
-    }
-   
-  }
-
-  /* 
-
-
-  Method 2 : Gaussian Mutation 
-// Function to perform Gaussian Mutation in the child's FSS configuration
-function mutateGaussian(child, mutationRate) {
-  const mutationAmount = mutationRate * (MAX_VALUE - MIN_VALUE);
-
-  for (let i = 0; i < child.length; i++) {
-    // Introduce Gaussian-distributed random changes with a mean of 0 and standard deviation of mutationAmount
-    if (Math.random() < mutationRate) {
-      child[i] += (Math.random() - 0.5) * 2 * mutationAmount;
-      // Make sure the value stays within the allowed range defined by your constraints
-      child[i] = Math.max(Math.min(child[i], MAX_VALUE), MIN_VALUE);
-    }
-  }
-}
 
 
 // Method 3 : Swap Method //
 
-function mutateSwap(child, mutationRate) {
+function mutate(child, mutationRate) {
   for (let i = 0; i < child.length; i++) {
     // Introduce swap mutation with a probability of mutationRate
     if (Math.random() < mutationRate) {
