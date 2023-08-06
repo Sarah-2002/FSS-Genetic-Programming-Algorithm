@@ -197,7 +197,7 @@ function geneticAlgorithm() {
   
 
 
-  //Cross Over : 
+  // Cross Over 
   function crossover(parent1, parent2) {
   const crossoverPoint1 = Math.floor(Math.random() * parent1.length);
   const crossoverPoint2 = Math.floor(Math.random() * parent1.length);
@@ -217,7 +217,7 @@ function geneticAlgorithm() {
   
 
 
-// Method 3 : Swap Method //
+// Mutation //
 
 function mutate(child, mutationRate) {
   for (let i = 0; i < child.length; i++) {
@@ -232,7 +232,7 @@ function mutate(child, mutationRate) {
   }
 }
 
-  */
+  
 
 const bestFSSConfig = geneticAlgorithm();
 console.log("Best FSS Configuration :" + bestFSSConfig );
