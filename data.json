@@ -162,78 +162,7 @@
         "thickness": 2.5,
         "material": "Copper"
       },
-      {
-        "layers": 2,
-        "spacing": 0.4,
-        "thickness": 1,
-        "material": "Aluminum"
-      },
-      {
-        "layers": 4,
-        "spacing": 0.2,
-        "thickness": 2,
-        "material": "Silver"
-      },
-      {
-        "layers": 3,
-        "spacing": 0.4,
-        "thickness": 1.5,
-        "material": "Gold"
-      },
-      {
-        "layers": 5,
-        "spacing": 0.3,
-        "thickness": 2.5,
-        "material": "Copper"
-      },
-      {
-        "layers": 2,
-        "spacing": 0.5,
-        "thickness": 1,
-        "material": "Aluminum"
-      },
-      {
-        "layers": 4,
-        "spacing": 0.4,
-        "thickness": 2,
-        "material": "Silver"
-      },
-      {
-        "layers": 3,
-        "spacing": 0.2,
-        "thickness": 1.5,
-        "material": "Gold"
-      },
-      {
-        "layers": 5,
-        "spacing": 0.5,
-        "thickness": 2.5,
-        "material": "Copper"
-      },
-      {
-        "layers": 2,
-        "spacing": 0.3,
-        "thickness": 1,
-        "material": "Aluminum"
-      },
-      {
-        "layers": 4,
-        "spacing": 0.5,
-        "thickness": 2,
-        "material": "Silver"
-      },
-      {
-        "layers": 3,
-        "spacing": 0.4,
-        "thickness": 1.5,
-        "material": "Gold"
-      },
-      {
-        "layers": 5,
-        "spacing": 0.2,
-        "thickness": 2.5,
-        "material": "Copper"
-      },
+  
       {
         "layers": 2,
         "spacing": 0.3,
