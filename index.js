@@ -14,6 +14,11 @@ data.forEach((item, index) => {
 
 //console.log(constraintsMap);
 
+
+
+// Sample FSS configurations
+const fssConfigurations = Array.from(constraintsMap.values());
+
 // Sample Frequencies to block
 const frequenciesToBlock = [
   { frequency: "2.45 GHz", description: "Microwave Ovens" },
@@ -75,10 +80,6 @@ const populationSize = 360;
 const generations = 1000;
 const mutationRate = 0.05; // 5% starting point
 const crossoverRate = 0.7; //70% starting point
-
-// Sample FSS configurations
-const fssConfigurations = Array.from(constraintsMap.values());
-
 
 
 
