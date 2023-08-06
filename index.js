@@ -76,7 +76,13 @@ for (const material of fssMaterials) {
   frequenciesBlockedByMaterial[material] = percentageBlocked;
 }
 
-// Fitness Function: Evaluate the fitness of an FSS configuration
+// Hypothetical Weight Values
+const weightFrequency = 1;
+const weightSpacing = 2;
+const weightLayers = 3;
+const weightThickness = 4;
+
+// Hypothetical Fitness Function: Evaluate the fitness of an FSS configuration
 function fitnessFunction(configuration) {
   let numFrequenciesBlocked = 0;
 
@@ -89,18 +95,17 @@ function fitnessFunction(configuration) {
   const totalFrequencies = frequenciesToBlock.length;
   const percentageBlocked = (numFrequenciesBlocked / totalFrequencies) * 100;
 
+  // Calculate a fitness score based on frequency blocking, spacing, layers, and thickness
+  const fitnessScore =
+    weightFrequency * percentageBlocked +
+    weightSpacing * (1 / configuration.spacing) +
+    weightLayers * configuration.layers +
+    weightThickness * configuration.thickness;
+
   // Higher fitness scores indicate better FSS designs.
-  return percentageBlocked;
+  return fitnessScore;
 }
 
-// Calculate the fitness scores for each FSS configuration
-const fitnessScores = fssConfigurations.map((config) => ({
-  fssConfig: config,
-  fitnessScore: fitnessFunction(config),
-}));
-
-console.log("Fitness Scores for each FSS Configuration:");
-console.log(fitnessScores);
 
 // ************************************************************** //
 
