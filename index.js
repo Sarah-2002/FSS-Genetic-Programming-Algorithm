@@ -92,7 +92,10 @@ function fitnessFunction(configuration) {
   const totalFrequencies = frequenciesToBlock.length;
   const percentageBlocked = (numFrequenciesBlocked / totalFrequencies) * 100;
 
-  // Calculate a fitness score based on frequency blocking, spacing, layers, and thickness
+  // Calculate a fitness score based on frequency blocking, spacing, layers, and thickness 
+  
+  // The frequency blocking , spacing , layers and thickness are the part where Logic would change
+
   const fitnessScore =
     weightFrequency * percentageBlocked +
     weightSpacing * (1 / configuration.spacing) +
